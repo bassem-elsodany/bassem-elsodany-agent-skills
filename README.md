@@ -1,4 +1,4 @@
-# bassem-elsodany-skills
+# bassem-elsodany-agent-skills
 
 **One marketplace, two Claude Code plugins: Rust skills for AI coding agents, and a study tutor that turns course material into lessons, audited quizzes and an interactive player. Add the catalog once, then pick what to install.**
 
@@ -13,14 +13,14 @@ This repository is only a **catalog**: it holds a `marketplace.json` that tells 
 **1. Add the catalog once** (in Claude Code):
 
 ```
-/plugin marketplace add bassem-elsodany/bassem-elsodany-skills
+/plugin marketplace add bassem-elsodany/bassem-elsodany-agent-skills
 ```
 
 **2. Install what you want.** Run `/plugin` to browse the catalog and pick, or install by name:
 
 ```
-/plugin install rs-skills@bassem-elsodany-skills
-/plugin install study-guide-tutor-skill@bassem-elsodany-skills
+/plugin install rs-skills@bassem-elsodany-agent-skills
+/plugin install study-guide-tutor-skill@bassem-elsodany-agent-skills
 ```
 
 **3. Reload and check:** `/reload-plugins` (or start a new session), then `/plugin` → *Installed*.
@@ -29,15 +29,15 @@ This repository is only a **catalog**: it holds a `marketplace.json` that tells 
 
 | Plugin | Install | What it does | Repository |
 |---|---|---|---|
-| **rs-skills** | `/plugin install rs-skills@bassem-elsodany-skills` | Rust skills for AI coding agents: an entry router, SDK-first and ports-and-adapters gates, threat-model security review, fuzzing, release checks, cleanup and git discipline (62 skills, 400+ rules) | [bassem-elsodany/rs-skills](https://github.com/bassem-elsodany/rs-skills) |
-| **study-guide-tutor-skill** | `/plugin install study-guide-tutor-skill@bassem-elsodany-skills` | Turns slides, notes and PDFs into a source-checked tutoring course: learner intake, fact ledger, lessons with tricky-part hints, audited quizzes, spaced flashcards, a timed exam and an interactive study player | [bassem-elsodany/study-guide-tutor-skill](https://github.com/bassem-elsodany/study-guide-tutor-skill) |
+| **rs-skills** | `/plugin install rs-skills@bassem-elsodany-agent-skills` | Rust skills for AI coding agents: an entry router, SDK-first and ports-and-adapters gates, threat-model security review, fuzzing, release checks, cleanup and git discipline (62 skills, 400+ rules) | [bassem-elsodany/rs-skills](https://github.com/bassem-elsodany/rs-skills) |
+| **study-guide-tutor-skill** | `/plugin install study-guide-tutor-skill@bassem-elsodany-agent-skills` | Turns slides, notes and PDFs into a source-checked tutoring course: learner intake, fact ledger, lessons with tricky-part hints, audited quizzes, spaced flashcards, a timed exam and an interactive study player | [bassem-elsodany/study-guide-tutor-skill](https://github.com/bassem-elsodany/study-guide-tutor-skill) |
 
 Each plugin's README has its own requirements, configuration and limits. Read it before installing.
 
 ## Keeping up to date
 
 ```
-/plugin marketplace update bassem-elsodany-skills
+/plugin marketplace update bassem-elsodany-agent-skills
 ```
 
 pulls the latest catalog. A plugin's own version changes when its repository publishes a new release; see its releases page.

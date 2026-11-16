@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "bassem-elsodany-skills",
+  "name": "bassem-elsodany-agent-skills",
   "version": "1.0.0",
   "description": "A catalog of Claude Code plugins by bassem-elsodany: Rust skills for AI coding agents and a study tutor that turns course material into lessons, audited quizzes and an interactive player",
   "owner": {
