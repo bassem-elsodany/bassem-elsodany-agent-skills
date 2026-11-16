@@ -1,0 +1,35 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "bassem-elsodany-skills",
+  "version": "1.0.0",
+  "description": "A catalog of Claude Code plugins by bassem-elsodany: Rust skills for AI coding agents and a study tutor that turns course material into lessons, audited quizzes and an interactive player",
+  "owner": {
+    "name": "bassem-elsodany"
+  },
+  "plugins": [
+    {
+      "name": "rs-skills",
+      "description": "Rust skills for AI coding agents: routing, SDK-first and ports-and-adapters gates, threat-model security review, fuzzing, release checks, cleanup and git discipline. 62 skills, 400+ depth rules.",
+      "source": {
+        "source": "github",
+        "repo": "bassem-elsodany/rs-skills"
+      },
+      "category": "development",
+      "license": "MIT",
+      "homepage": "https://github.com/bassem-elsodany/rs-skills",
+      "keywords": ["rust", "agent-skills", "code-review", "security-review", "fuzzing"]
+    },
+    {
+      "name": "study-guide-tutor-skill",
+      "description": "Turns slides, notes and PDFs into a source-checked tutoring course: learner intake, fact ledger, lessons with tricky-part hints, audited quizzes, spaced flashcards, a timed exam and an interactive study player.",
+      "source": {
+        "source": "github",
+        "repo": "bassem-elsodany/study-guide-tutor-skill"
+      },
+      "category": "education",
+      "license": "MIT",
+      "homepage": "https://github.com/bassem-elsodany/study-guide-tutor-skill",
+      "keywords": ["education", "exam-preparation", "quiz", "flashcards", "active-recall"]
+    }
+  ]
+}

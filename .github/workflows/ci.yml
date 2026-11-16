@@ -1,0 +1,17 @@
+name: ci
+on: { push: { branches: [main] }, pull_request: {}, schedule: [{ cron: "17 6 * * 1" }] }
+permissions: { contents: read }
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4          # pin to a commit SHA before relying on this workflow
+        with: { persist-credentials: false }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Catalog checks (self-test, then offline and online)
+        run: |
+          python3 -I scripts/validate-catalog.py --self-test
+          python3 -I scripts/validate-catalog.py .
+          python3 -I scripts/validate-catalog.py . --online
