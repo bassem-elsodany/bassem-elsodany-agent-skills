@@ -52,7 +52,7 @@ pulls the latest catalog. A plugin's own version changes when its repository pub
 
 ## Maintaining the catalog
 
-To add a plugin, add an object to `plugins` in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) with a `name` equal to the plugin's own manifest name, a `description`, and a `source` of the form `{"source": "github", "repo": "owner/repo"}`. Then:
+To add a plugin, add an object to `plugins` in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) with a `name` equal to the plugin's own manifest name, a `description`, and a `source` of the form `{"source": "url", "url": "https://github.com/owner/repo.git"}`. Use the explicit https address, not the shorter `github` source type: that one clones over SSH and fails for anyone without SSH keys. Then:
 
 ```bash
 python3 -I scripts/validate-catalog.py --self-test

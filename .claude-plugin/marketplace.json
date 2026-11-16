@@ -11,8 +11,8 @@
       "name": "rs-skills",
       "description": "Rust skills for AI coding agents: routing, SDK-first and ports-and-adapters gates, threat-model security review, fuzzing, release checks, cleanup and git discipline. 62 skills, 400+ depth rules.",
       "source": {
-        "source": "github",
-        "repo": "bassem-elsodany/rs-skills"
+        "source": "url",
+        "url": "https://github.com/bassem-elsodany/rs-skills.git"
       },
       "category": "development",
       "license": "MIT",
@@ -23,8 +23,8 @@
       "name": "study-guide-tutor-skill",
       "description": "Turns slides, notes and PDFs into a source-checked tutoring course: learner intake, fact ledger, lessons with tricky-part hints, audited quizzes, spaced flashcards, a timed exam and an interactive study player.",
       "source": {
-        "source": "github",
-        "repo": "bassem-elsodany/study-guide-tutor-skill"
+        "source": "url",
+        "url": "https://github.com/bassem-elsodany/study-guide-tutor-skill.git"
       },
       "category": "education",
       "license": "MIT",

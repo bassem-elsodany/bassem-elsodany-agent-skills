@@ -4,7 +4,7 @@
 Usage: validate-catalog.py [ROOT] [--online] [--self-test]
 
 Offline checks: .claude-plugin/marketplace.json parses; it has a name, owner and plugins; every entry has a unique
-kebab-case name, a description, and a github source of the form owner/repo; the version equals VERSION; no absolute
+kebab-case name, a description, and an https git URL source (https://github.com/owner/repo.git); the version equals VERSION; no absolute
 paths or personal email addresses anywhere. --online also fetches each plugin's own .claude-plugin/plugin.json from its
 repository and checks that the manifest name equals the catalog entry name (a mismatch breaks `/plugin install`).
 --self-test proves the checks fire on a broken catalog. Standard library only.
@@ -36,10 +36,17 @@ def validate(root, online=False):
         seen.add(n)
         if not pl.get('description'): e(f'{n}: description missing')
         s = pl.get('source')
-        if not (isinstance(s, dict) and s.get('source') == 'github' and re.fullmatch(r'[\w.-]+/[\w.-]+', s.get('repo', ''))):
-            e(f'{n}: source must be {{"source": "github", "repo": "owner/repo"}}'); continue
-        if online:
-            url = f'https://raw.githubusercontent.com/{s["repo"]}/HEAD/.claude-plugin/plugin.json'
+        repo = None
+        if isinstance(s, dict) and s.get('source') == 'url':
+            m = re.fullmatch(r'https://github\.com/([\w.-]+/[\w.-]+?)(?:\.git)?', s.get('url', ''))
+            repo = m.group(1) if m else None
+            if not repo: e(f'{n}: url source must be an https://github.com/owner/repo.git address (https avoids the SSH keys a stranger may not have)')
+        elif isinstance(s, dict) and s.get('source') == 'github':
+            e(f'{n}: use {{"source": "url", "url": "https://github.com/owner/repo.git"}}: the github source type clones over SSH and fails for anyone without SSH keys')
+        else:
+            e(f'{n}: source must be {{"source": "url", "url": "https://github.com/owner/repo.git"}}')
+        if repo and online:
+            url = f'https://raw.githubusercontent.com/{repo}/HEAD/.claude-plugin/plugin.json'
             try:
                 m = json.load(urllib.request.urlopen(url, timeout=20))
                 if m.get('name') != n: e(f'{n}: the plugin\'s own manifest is named {m.get("name")!r}')
@@ -65,7 +72,7 @@ def self_test():
             open(T + '/.claude-plugin/marketplace.json', 'w'))
         open(T + '/README.md', 'w').write('see ' + '/' + 'Users/someone/x\n')
         errs = '\n'.join(validate(T))
-        for needle in ('!= VERSION', 'kebab-case', 'duplicate name', 'description missing', 'source must be', 'absolute path'):
+        for needle in ('!= VERSION', 'kebab-case', 'duplicate name', 'description missing', 'source must be', 'clones over SSH', 'absolute path'):
             if needle not in errs: print('SELF-TEST FAIL: did not catch', needle); return 1
         print('self-test OK: every check fires on a broken catalog'); return 0
     finally:
