@@ -2,7 +2,7 @@
 
 **One marketplace, two Claude Code plugins: Rust skills for AI coding agents, and a study tutor that turns course material into lessons, audited quizzes and an interactive player. Add the catalog once, then pick what to install.**
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![CI](https://github.com/bassem-elsodany/bassem-elsodany-agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/bassem-elsodany/bassem-elsodany-agent-skills/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Release](https://img.shields.io/github/v/release/bassem-elsodany/bassem-elsodany-agent-skills)](https://github.com/bassem-elsodany/bassem-elsodany-agent-skills/releases)
 
 This repository is only a **catalog**: it holds a `marketplace.json` that tells Claude Code where each plugin lives. The plugins themselves stay in their own repositories, with their own issues, releases and versions. Nothing here is copied or forked.
 
