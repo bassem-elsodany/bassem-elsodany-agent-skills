@@ -17,7 +17,13 @@
       "category": "development",
       "license": "MIT",
       "homepage": "https://github.com/bassem-elsodany/rs-skills",
-      "keywords": ["rust", "agent-skills", "code-review", "security-review", "fuzzing"]
+      "keywords": [
+        "rust",
+        "agent-skills",
+        "code-review",
+        "security-review",
+        "fuzzing"
+      ]
     },
     {
       "name": "study-guide-tutor-skill",
@@ -27,9 +33,15 @@
         "url": "https://github.com/bassem-elsodany/study-guide-tutor-skill.git"
       },
       "category": "education",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "homepage": "https://github.com/bassem-elsodany/study-guide-tutor-skill",
-      "keywords": ["education", "exam-preparation", "quiz", "flashcards", "active-recall"]
+      "keywords": [
+        "education",
+        "exam-preparation",
+        "quiz",
+        "flashcards",
+        "active-recall"
+      ]
     }
   ]
 }
